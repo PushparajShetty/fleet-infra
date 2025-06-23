@@ -17,24 +17,17 @@ spec:
   wait: true
   patches:
     - patch: |-
-        - op: add
-          path: /metadata/labels/app.kubernetes.io~1name
-          value: podinfo
-        - op: add
-          path: /metadata/labels/app.kubernetes.io~1instance
-          value: podinfo-prod
-        - op: add
-          path: /metadata/labels/app.kubernetes.io~1managed-by
-          value: flux
-        - op: add
-          path: /metadata/labels/environment
-          value: production
-        - op: add
-          path: /metadata/labels/team
-          value: platform
-        - op: add
-          path: /metadata/labels/version
-          value: v1.0.0
+        apiVersion: apps/v1
+        kind: Deployment
+        metadata:
+          name: podinfo
+          labels:
+            app.kubernetes.io/name: podinfo
+            app.kubernetes.io/instance: podinfo-prod
+            app.kubernetes.io/managed-by: flux
+            environment: production
+            team: platform
+            version: v1.0.0
       target:
         kind: Deployment
         name: podinfo
