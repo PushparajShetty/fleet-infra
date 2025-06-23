@@ -7,7 +7,7 @@ spec:
   values:
     controller:
       serviceAccount:
-        annotations:
+        labels:
           gwcp.guidewire.com/created-by: pod-warrior
           gwcp.guidewire.com/maintained-by: pod-warrior
           gwcp.guidewire.com/tenant-name: quadrant-shared
